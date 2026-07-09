@@ -8,10 +8,10 @@ A função deverá permitir conversões entre Celsius, Fahrenheit e Kelvin. -->
 
 function converterTemperatura($temperatura, $escala_origem, $escala_destino){
 
-    if ($escala_origem != 'Celsius' || $escala_origem != 'Fahrenheit' || $escala_origem != 'Kelvin'){
+    if ($escala_origem != 'Celsius' && $escala_origem != 'Fahrenheit' && $escala_origem != 'Kelvin'){
         return "Escala de origem inválida.";
     }
-    if ($escala_destino != 'Celsius' || $escala_destino != 'Fahrenheit' || $escala_destino != 'Kelvin'){
+    if ($escala_destino != 'Celsius' && $escala_destino != 'Fahrenheit' && $escala_destino != 'Kelvin'){
         return "Escala de destino inválida.";
     }
 
@@ -36,7 +36,7 @@ function converterTemperatura($temperatura, $escala_origem, $escala_destino){
         }
     }
 
-    if ($escala_origem == 'kelvin') {
+    if ($escala_origem == 'Kelvin') {
         if ($escala_destino == 'Celsius'){
             $temperatura_convertida = $temperatura - 273.15;
             return $temperatura_convertida;
@@ -47,5 +47,15 @@ function converterTemperatura($temperatura, $escala_origem, $escala_destino){
     }
 
 }
+
+$temperatura = 5;
+$escala_origem = 'Fahrenheit';
+$escala_destino = 'Kelvin';
+
+echo "Temperatura: " . $temperatura . "<br>";
+echo "Escala de origem: " . $escala_origem . "<br>";
+echo "Escala de destino: " . $escala_destino . "<br><br>";
+echo "temperatura convertida: " . converterTemperatura($temperatura, $escala_origem, $escala_destino) . "<br>";
+
 
 ?>
