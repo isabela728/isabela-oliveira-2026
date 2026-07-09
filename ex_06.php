@@ -8,9 +8,11 @@ A função deverá permitir conversões entre Celsius, Fahrenheit e Kelvin. -->
 
 function converterTemperatura($temperatura, $escala_origem, $escala_destino){
 
+    $temperatura_convertida = 0;
+
     if ($escala_origem == 'Celsius') {
        if ($escala_destino == 'Fahrenheit'){
-           $temperatura_converida = ($temperatura * 1.8) + 32;
+           $temperatura_convertida = ($temperatura * 1.8) + 32;
        }else if ($escala_destino == 'Kelvin'){
            $temperatura_convertida = $temperatura + 273.15;
        }

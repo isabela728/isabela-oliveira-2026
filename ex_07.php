@@ -11,9 +11,11 @@ Retorne o valor original, o desconto aplicado e o valor final da compra. -->
 
 function calcularDesconto($valor_compra)
 {
+    $desconto = 0;
+
     if ($valor_compra <= 100) {
         $desconto = 0;
-    }else if ($valor_compra > 100 && $valor_compra <= 500) {
+    } else if ($valor_compra > 100 && $valor_compra <= 500) {
         $desconto = $valor_compra * 0.10;
     } else if ($valor_compra > 500 && $valor_compra <= 1000) {
         $desconto = $valor_compra * 0.20;
