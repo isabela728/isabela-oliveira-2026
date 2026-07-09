@@ -8,19 +8,31 @@ números e caracteres especiais. -->
 function gerarSenha($quantidade)
 {
 
-    $caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*';
+    $minusculas = range('a', 'z');
+    $maiusculas = range('A', 'Z');
+    $numeros = range('0', '9');
+    $especiais = ['!', '@', '#', '$', '%', '&', '*'];
+    $caracteres = array_merge($minusculas, $maiusculas, $numeros, $especiais);
+
     $senha = '';
 
-    for ($i = 0; $i < $quantidade; $i++){
-        $senha .= $caracteres[rand(0, strlen($caracteres) - 1)];
+    $senha .= $minusculas[array_rand($minusculas)];
+    $senha .= $maiusculas[array_rand($maiusculas)];
+    $senha .= $numeros[array_rand($numeros)];
+    $senha .= $especiais[array_rand($especiais)];
+
+    for ($i = 4; $i < $quantidade; $i++) {
+        $senha .= $caracteres[array_rand($caracteres)];
     }
 
-    return $senha;
+    $senhaArray = str_split($senha);
+    shuffle($senhaArray);
+
+    return implode($senhaArray);
 }
 
 $quantidade = 10;
 
 echo "Senha gerada: " . gerarSenha($quantidade);
-
 
 ?>

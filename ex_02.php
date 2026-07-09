@@ -9,15 +9,13 @@ Além disso, exiba a quantidade de caracteres existentes na string original. -->
 function inverterTexto($texto)
 {
     $texto_invertido = strrev($texto);
-    $quantidade = strlen($texto);
+    $quantidade = mb_strlen($texto);
 
     return [
         "texto_invertido" => $texto_invertido,
         "quantidade_caracteres" => $quantidade
-
     ];
 }
-
 
 $texto = "socorram me subi no onibus em Marrocos";
 
